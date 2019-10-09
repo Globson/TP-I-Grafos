@@ -36,6 +36,34 @@ Grafo::Grafo(int V)
 	adj = new list<int>[V]; // cria as lista, sendo um vetor de listas de V posicoes
 }
 
+void Grafo::AcrescentaVertice(int NovoV){
+  list<int> AuxList[V];
+  for(int i = 0; i<V; i++){
+    AuxList[i]=adj[i];
+  }
+  adj = new list<int>[NovoV];
+  for(int i = 0;i<V; i++){
+    adj[i]=AuxList[i];
+  }
+  this->V = NovoV;
+}
+
+void Grafo::getAdjacencias(){
+  cout<< this->V <<endl;
+  list<int> ListAux[V];
+  for(int j =0;j<V;j++){
+    ListAux[j] = adj[j];
+  }
+  for(int i = 0;i<V;i++){
+    cout<<"Vertice "<<i<<" é adjacente a: ";
+    while (!ListAux[i].empty()) {
+      cout << ListAux[i].front()<<", ";
+      ListAux[i].pop_front();
+    }
+    cout<<endl;
+  }
+}
+
 void Grafo::adicionarAresta(int v1, int v2)
 {
 	// adiciona vértice v2 à lista de vértices adjacentes de v1
@@ -88,24 +116,3 @@ void Grafo::dfs(int v)
 		}
 	}
 }
-
-/*    Exemplo de main: //TODO
-int main()
-{
-	int V = 8;
-
-	Grafo grafo(V);
-
-	// adicionando as arestas
-	grafo.adicionarAresta(0, 1);
-	grafo.adicionarAresta(0, 2);
-	grafo.adicionarAresta(1, 3);
-	grafo.adicionarAresta(1, 4);
-	grafo.adicionarAresta(2, 5);
-	grafo.adicionarAresta(2, 6);
-	grafo.adicionarAresta(6, 7);
-
-	grafo.dfs(0);
-
-	return 0;
-}*/

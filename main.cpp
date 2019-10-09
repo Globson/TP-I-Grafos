@@ -20,5 +20,28 @@ int main(int argc, char const *argv[]) {
     }
   }
   cout << endl;
+
+
+  int V = 8;
+
+	Grafo grafo(V);
+
+	// adicionando as arestas
+	grafo.adicionarAresta(0, 1);
+	grafo.adicionarAresta(0, 2);
+	grafo.adicionarAresta(1, 3);
+	grafo.adicionarAresta(1, 4);
+	grafo.adicionarAresta(2, 5);
+	grafo.adicionarAresta(2, 6);
+	grafo.adicionarAresta(6, 7);
+  grafo.adicionarAresta(4, 7);
+  grafo.adicionarAresta(5, 4);
+  grafo.getAdjacencias();
+  grafo.AcrescentaVertice(10);
+  grafo.adicionarAresta(9,8);
+  grafo.adicionarAresta(8,2);
+  grafo.adicionarAresta(9,1);
+  grafo.getAdjacencias();
+	//grafo.dfs(2);
   return 0;
 }

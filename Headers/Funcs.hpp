@@ -17,7 +17,8 @@ class Grafo{
 public:
 	Grafo(int V); // construtor
 	void adicionarAresta(int v1, int v2); // adiciona uma aresta no grafo
-
+  void AcrescentaVertice(int NovoV);
+  void getAdjacencias();
 	// faz uma DFS a partir de um vértice
 	void dfs(int v);
 };
