@@ -1,47 +1,64 @@
 #include "Headers/Funcs.hpp"
+#include "Headers/Arvore.hpp"
 
 int main(int argc, char const *argv[]) {
   srand(time(NULL));
-  int Matriz[3][3];
-  inicializaMatrizAleatoria(Matriz);
-  int MatrizR[3][3];     //intuito do algoritmo backtracking é chegar no momento em que as duas matrizes forem iguais.
-  inicializaMatrizResolvida(MatrizR);
+  MatrizPuzzle Puzzle;
+
+  Puzzle.InicializaMatrizAleatoria();
+  cout<<"Matriz Gerada Aleatoriamente:"<<endl;
   for(int i=0;i<3;i++){
     cout << endl;
+    cout << "\t";
     for(int j=0;j<3;j++){
-      cout << Matriz[i][j] << " ";
+      cout <<Puzzle.Matriz[i][j] << " ";
     }
   }
   cout << endl;
+  /*
   for(int i=0;i<3;i++){
-    cout << endl;
+   cout << endl;
     for(int j=0;j<3;j++){
-      cout << MatrizR[i][j] << " ";
+      cout << Puzzle.MatrizR[i][j] << " ";
     }
   }
   cout << endl;
 
+  int MatrizTEste[3][3];
+  Puzzle.MovimentaBaixo(MatrizTEste);
+  for(int i=0;i<3;i++){
+    cout<<endl;
+    for(int j=0;j<3;j++){
+      cout<<MatrizTEste[i][j]<<" ";
+    }
+  }
+  cout<<endl;*/
 
-  int V = 8;
+  Pont Raiz;
+  VetorDeMexistentes Lista;
+  int trava = 0;
+  Insere(Puzzle,&Raiz,&Lista,&trava);
 
-	Grafo grafo(V);
-
-	// adicionando as arestas
-	grafo.adicionarAresta(0, 1);
-	grafo.adicionarAresta(0, 2);
-	grafo.adicionarAresta(1, 3);
-	grafo.adicionarAresta(1, 4);
-	grafo.adicionarAresta(2, 5);
-	grafo.adicionarAresta(2, 6);
-	grafo.adicionarAresta(6, 7);
-  grafo.adicionarAresta(4, 7);
-  grafo.adicionarAresta(5, 4);
-  grafo.getAdjacencias();
-  grafo.AcrescentaVertice(10);
-  grafo.adicionarAresta(9,8);
-  grafo.adicionarAresta(8,2);
-  grafo.adicionarAresta(9,1);
-  grafo.getAdjacencias();
-	//grafo.dfs(2);
+  for(unsigned int k=0;k<Lista.Vetor.size();k++){
+    cout<<endl;
+    for(int i=0;i<3;i++){
+      cout<<endl;
+      for(int j=0;j<3;j++){
+        cout<<Lista.Vetor.at(k).Matriz[i][j]<<" ";
+      }
+    }}cout<<endl;
+  /*
+  if(Raiz->Cima!=NULL)
+    if(Raiz->Cima->Cima!=NULL){
+    cout<<"Entrou"<<endl;
+    for(int i=0;i<3;i++){
+      cout<<endl;
+      for(int j=0;j<3;j++){
+        cout<<Raiz->Cima->MatrizAtual[i][j]<<" ";
+      }
+    }
+  }
+  cout<<endl;*/
+  cout<<Lista.Vetor.size();
   return 0;
 }
