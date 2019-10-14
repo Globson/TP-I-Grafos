@@ -34,31 +34,12 @@ int main(int argc, char const *argv[]) {
   }
   cout<<endl;*/
 
-  Pont Raiz;
-  VetorDeMexistentes Lista;
-  int trava = 0;
-  Insere(Puzzle,&Raiz,&Lista,&trava);
+  Arvore Arv;
+  Lista Lista;
+  int trava=0;
+  Arv.Insere(Puzzle,&Arv.Raiz,&Lista,&trava);
 
-  for(unsigned int k=0;k<Lista.Vetor.size();k++){
-    cout<<endl;
-    for(int i=0;i<3;i++){
-      cout<<endl;
-      for(int j=0;j<3;j++){
-        cout<<Lista.Vetor.at(k).Matriz[i][j]<<" ";
-      }
-    }}cout<<endl;
-  /*
-  if(Raiz->Cima!=NULL)
-    if(Raiz->Cima->Cima!=NULL){
-    cout<<"Entrou"<<endl;
-    for(int i=0;i<3;i++){
-      cout<<endl;
-      for(int j=0;j<3;j++){
-        cout<<Raiz->Cima->MatrizAtual[i][j]<<" ";
-      }
-    }
-  }
-  cout<<endl;*/
-  cout<<Lista.Vetor.size();
+  Lista.mostrar();
+  cout<<endl;
   return 0;
 }

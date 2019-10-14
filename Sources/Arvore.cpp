@@ -14,7 +14,11 @@
   else *x = (*p)->Reg;
 }*/
 
-void Insere(MatrizPuzzle MatrizP, Pont *p,VetorDeMexistentes *Lista, int* trava){
+/*void Insere(MatrizPuzzle MatrizP, Pont *p,VetorDeMexistentes *Lista, int* trava){
+  if(*trava>21000){
+    return;
+  }
+  *trava++;
    if(*p == NULL){
      *p = (Pont)malloc(sizeof(No));
      for(int i=0;i<3;i++){
@@ -135,5 +139,80 @@ void Insere(MatrizPuzzle MatrizP, Pont *p,VetorDeMexistentes *Lista, int* trava)
   }
 
 }
+*/
+Arvore::Arvore(){
+  this->Raiz = NULL;
+}
+void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,int* trava){
+  if(*trava>2150000){
+    cout<<"Limite Atingido!"<<endl;
+    return;
+  }else{
+  *trava++;}
 
-void Inicializa(Pont *Raiz){ *Raiz = NULL; }
+  if(*p == NULL){
+    *p = (Pont)malloc(sizeof(NoArv));
+    for(int i=0;i<3;i++){
+      for(int j=0;j<3;j++){
+        (*p)->MatrizAtual[i][j]=MatrizP.Matriz[i][j];
+      }
+    }
+   (*p)->Esq = NULL;
+   (*p)->Dir = NULL;
+   (*p)->Cima = NULL;
+   (*p)->Baixo = NULL;
+   }
+   MatrizPuzzle MatrizDeInsercao;
+   if(MatrizP.MovimentaCima(MatrizDeInsercao.Matriz)){
+     if(!Lista->existe(MatrizDeInsercao.Matriz)){
+       if(!MatrizP.VerificaResultado()){
+         Lista->inserir_inicio(MatrizDeInsercao.Matriz);
+       }
+       else{
+         cout<<"RESULTADO"<<endl;
+         system("pause");
+         //resultado = true;
+       }
+       Insere(MatrizDeInsercao,&(*p)->Cima,Lista,trava);
+     }
+   }
+   if(MatrizP.MovimentaBaixo(MatrizDeInsercao.Matriz)){
+     if(!Lista->existe(MatrizDeInsercao.Matriz)){
+       if(!MatrizP.VerificaResultado()){
+         Lista->inserir_final(MatrizDeInsercao.Matriz);
+       }
+       else{
+         cout<<"RESULTADO"<<endl;
+         system("pause");
+       }
+
+       Insere(MatrizDeInsercao,&(*p)->Baixo,Lista,trava);
+     }
+   }
+   if(MatrizP.MovimentaEsquerda(MatrizDeInsercao.Matriz)){
+     if(!Lista->existe(MatrizDeInsercao.Matriz)){
+       if(!MatrizP.VerificaResultado()){
+         Lista->inserir_final(MatrizDeInsercao.Matriz);
+       }
+       else{
+         cout<<"RESULTADO"<<endl;
+         system("pause");
+       }
+       Insere(MatrizDeInsercao,&(*p)->Esq,Lista,trava);
+     }
+   }
+   if(MatrizP.MovimentaDireita(MatrizDeInsercao.Matriz)){
+     if(!Lista->existe(MatrizDeInsercao.Matriz)){
+       if(!MatrizP.VerificaResultado()){
+         Lista->inserir_final(MatrizDeInsercao.Matriz);
+       }
+       else{
+         cout<<"RESULTADO"<<endl;
+         system("pause");
+       }
+       Insere(MatrizDeInsercao,&(*p)->Dir,Lista,trava);
+     }
+   }
+
+}
+void Arvore::Inicializa(){Raiz = NULL;}

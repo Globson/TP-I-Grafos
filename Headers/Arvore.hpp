@@ -1,20 +1,22 @@
 #ifndef ARVORE_HPP
 #define ARVORE_HPP
 #include "Funcs.hpp"
+#include "Lista.hpp"
 
-
-typedef struct No * Pont;
-typedef struct No {
+typedef class NoArv * Pont;
+class NoArv {
+public:
   int MatrizAtual[3][3];
   Pont Cima,Baixo,Esq,Dir;
-} No;
+};
 
-void Pesquisa(int Matriz[][3], Pont *p);
-
-
-void Insere(MatrizPuzzle MatrizP, Pont *p,VetorDeMexistentes *Vetor,int* trava);
-
-
-void Inicializa(Pont *Raiz);
+class Arvore{
+public:
+  Pont Raiz;
+  Arvore();
+  void Pesquisa(int Matriz[][3], Pont *p);
+  void Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,int* trava);
+  void Inicializa();
+};
 
 #endif

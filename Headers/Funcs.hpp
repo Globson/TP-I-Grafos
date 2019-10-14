@@ -23,16 +23,16 @@ public:
   bool VerificaResultado();
 };
 
-class MatrizesExistente{
-public:
-  int Matriz[3][3];
-};
-
-class VetorDeMexistentes{
-
-
-public:
-  vector<MatrizesExistente>Vetor;
-
-};
+// class MatrizesExistente{
+// public:
+//   int Matriz[3][3];
+// };
+//
+// class VetorDeMexistentes{
+//
+//
+// public:
+//   vector<MatrizesExistente>Vetor;
+//
+// };
 #endif
