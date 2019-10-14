@@ -144,11 +144,10 @@ Arvore::Arvore(){
   this->Raiz = NULL;
 }
 void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,int* trava){
-  if(*trava>2150000){
+  if(*trava>5000000000){
     cout<<"Limite Atingido!"<<endl;
     return;
-  }else{
-  *trava++;}
+  }
 
   if(*p == NULL){
     *p = (Pont)malloc(sizeof(NoArv));
@@ -164,52 +163,63 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,int* trava){
    }
    MatrizPuzzle MatrizDeInsercao;
    if(MatrizP.MovimentaCima(MatrizDeInsercao.Matriz)){
+     cout<<"Movimento para Cima"<<endl;
      if(!Lista->existe(MatrizDeInsercao.Matriz)){
        if(!MatrizP.VerificaResultado()){
          Lista->inserir_inicio(MatrizDeInsercao.Matriz);
        }
        else{
          cout<<"RESULTADO"<<endl;
-         system("pause");
+         string b;
+         cin>>b;
          //resultado = true;
        }
+       *trava++;
        Insere(MatrizDeInsercao,&(*p)->Cima,Lista,trava);
      }
    }
    if(MatrizP.MovimentaBaixo(MatrizDeInsercao.Matriz)){
+     cout<<"Movimento para Baixo"<<endl;
      if(!Lista->existe(MatrizDeInsercao.Matriz)){
        if(!MatrizP.VerificaResultado()){
          Lista->inserir_final(MatrizDeInsercao.Matriz);
        }
        else{
          cout<<"RESULTADO"<<endl;
-         system("pause");
+         string b;
+         cin>>b;
        }
-
+       *trava++;
        Insere(MatrizDeInsercao,&(*p)->Baixo,Lista,trava);
      }
    }
    if(MatrizP.MovimentaEsquerda(MatrizDeInsercao.Matriz)){
+     cout<<"Movimento para Esquerda"<<endl;
      if(!Lista->existe(MatrizDeInsercao.Matriz)){
        if(!MatrizP.VerificaResultado()){
          Lista->inserir_final(MatrizDeInsercao.Matriz);
        }
        else{
          cout<<"RESULTADO"<<endl;
-         system("pause");
+         string b;
+         cin>>b;
        }
+       *trava++;
        Insere(MatrizDeInsercao,&(*p)->Esq,Lista,trava);
      }
    }
    if(MatrizP.MovimentaDireita(MatrizDeInsercao.Matriz)){
+     cout<<"Movimento para Direita"<<endl;
      if(!Lista->existe(MatrizDeInsercao.Matriz)){
        if(!MatrizP.VerificaResultado()){
          Lista->inserir_final(MatrizDeInsercao.Matriz);
        }
        else{
          cout<<"RESULTADO"<<endl;
-         system("pause");
+         string b;
+         cin>>b;
        }
+       *trava++;
        Insere(MatrizDeInsercao,&(*p)->Dir,Lista,trava);
      }
    }

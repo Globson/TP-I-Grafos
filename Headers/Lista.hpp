@@ -1,4 +1,4 @@
-#include "Funcs.hpp"
+#include "Puzzle.hpp"
 // classe No
 class No
 {

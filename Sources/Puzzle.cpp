@@ -1,4 +1,4 @@
-#include "../Headers/Funcs.hpp"
+#include "../Headers/Puzzle.hpp"
 
 
 void MatrizPuzzle::InicializaMatrizAleatoria(){
@@ -28,7 +28,7 @@ void MatrizPuzzle::InicializaMatrizResolvida(){
       this->MatrizR[i][j]=k;
       k++;
     }
-  MatrizR[2][2]=0;
+  this->MatrizR[2][2]=0;
 }
 
 MatrizPuzzle::MatrizPuzzle(){

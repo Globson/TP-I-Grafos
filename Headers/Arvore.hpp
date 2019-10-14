@@ -1,6 +1,6 @@
 #ifndef ARVORE_HPP
 #define ARVORE_HPP
-#include "Funcs.hpp"
+#include "Puzzle.hpp"
 #include "Lista.hpp"
 
 typedef class NoArv * Pont;
