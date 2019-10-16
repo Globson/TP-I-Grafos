@@ -15,7 +15,7 @@ public:
   Pont Raiz;
   Arvore();
   void Pesquisa(int Matriz[][3], Pont *p);
-  void Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,int* trava);
+  void Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* trava);
   void Inicializa();
 };
 

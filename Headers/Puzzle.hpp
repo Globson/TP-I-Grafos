@@ -14,6 +14,7 @@ public:
   int Matriz[3][3];
 	int MatrizR[3][3];
 	MatrizPuzzle();
+  ~MatrizPuzzle();
   void InicializaMatrizAleatoria();
   void InicializaMatrizResolvida();
 	bool MovimentaCima(int MatrizAux[][3]);

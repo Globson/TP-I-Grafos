@@ -3,11 +3,12 @@
 Arvore::Arvore(){
   this->Raiz = NULL;
 }
-void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,int* trava){
-//  if(*trava>4000000000){
-//    cout<<"Limite Atingido!"<<endl;
-//    return;
-//  }
+void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* trava){
+  cout<<"Trava: "<<*trava<<endl;
+  if(*trava>32060){
+    cout<<"Limite Atingido!"<<endl;
+    //return;
+  }
 
   if(*p == NULL){
     *p = (Pont)malloc(sizeof(NoArv));
@@ -22,23 +23,7 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,int* trava){
    (*p)->Baixo = NULL;
    }
    MatrizPuzzle MatrizDeInsercao;
-   if(MatrizP.MovimentaCima(MatrizDeInsercao.Matriz) && *trava<1000000000){
-     if(!Lista->existe(MatrizDeInsercao.Matriz)){
-       cout<<"Movimento para Cima"<<endl;
-       if(!MatrizDeInsercao.VerificaResultado()){
-         Lista->inserir_inicio(MatrizDeInsercao.Matriz);
-       }
-       else{
-         cout<<"RESULTADO"<<endl;
-         string b;
-         cin>>b;
-         //resultado = true;
-       }
-       *trava++;
-       Insere(MatrizDeInsercao,&(*p)->Cima,Lista,trava);
-     }
-   }
-  if(MatrizP.MovimentaEsquerda(MatrizDeInsercao.Matriz) && *trava<1000000000){
+  if(MatrizP.MovimentaEsquerda(MatrizDeInsercao.Matriz) && *trava<32060){
      if(!Lista->existe(MatrizDeInsercao.Matriz)){
        cout<<"Movimento para Esquerda"<<endl;
        if(!MatrizDeInsercao.VerificaResultado()){
@@ -49,11 +34,13 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,int* trava){
          string b;
          cin>>b;
        }
-       *trava++;
+
+       *trava= *trava+1;
        Insere(MatrizDeInsercao,&(*p)->Esq,Lista,trava);
+
      }
    }
-  if(MatrizP.MovimentaBaixo(MatrizDeInsercao.Matriz) && *trava<1000000000){
+  if(MatrizP.MovimentaBaixo(MatrizDeInsercao.Matriz) && *trava<32060){
       if(!Lista->existe(MatrizDeInsercao.Matriz)){
         cout<<"Movimento para Baixo"<<endl;
         if(!MatrizDeInsercao.VerificaResultado()){
@@ -64,11 +51,28 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,int* trava){
           string b;
           cin>>b;
         }
-        *trava++;
+
+        *trava= *trava+1;
         Insere(MatrizDeInsercao,&(*p)->Baixo,Lista,trava);
       }
     }
-   if(MatrizP.MovimentaDireita(MatrizDeInsercao.Matriz) && *trava<1000000000){
+    if(MatrizP.MovimentaCima(MatrizDeInsercao.Matriz) && *trava<32060){
+      if(!Lista->existe(MatrizDeInsercao.Matriz)){
+        cout<<"Movimento para Cima"<<endl;
+        if(!MatrizDeInsercao.VerificaResultado()){
+          Lista->inserir_inicio(MatrizDeInsercao.Matriz);
+        }
+        else{
+          cout<<"RESULTADO"<<endl;
+          string b;
+          cin>>b;
+          //resultado = true;
+        }
+        *trava= *trava+1;
+        Insere(MatrizDeInsercao,&(*p)->Cima,Lista,trava);
+      }
+    }
+   if(MatrizP.MovimentaDireita(MatrizDeInsercao.Matriz) && *trava<32060){
      if(!Lista->existe(MatrizDeInsercao.Matriz)){
        cout<<"Movimento para Direita"<<endl;
        if(!MatrizDeInsercao.VerificaResultado()){
@@ -79,7 +83,8 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,int* trava){
          string b;
          cin>>b;
        }
-       *trava++;
+
+       *trava= *trava+1;
        Insere(MatrizDeInsercao,&(*p)->Dir,Lista,trava);
      }
    }
