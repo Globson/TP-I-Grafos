@@ -5,7 +5,7 @@ int main(int argc, char const *argv[]) {
   srand(time(NULL));
   MatrizPuzzle Puzzle;
   Puzzle.InicializaMatrizAleatoria();
-
+/*
   Puzzle.Matriz[0][0]=1;
   Puzzle.Matriz[0][1]=3;
   Puzzle.Matriz[0][2]=6;
@@ -15,7 +15,7 @@ int main(int argc, char const *argv[]) {
   Puzzle.Matriz[2][0]=4;
   Puzzle.Matriz[2][1]=8;
   Puzzle.Matriz[2][2]=5;
-/*
+/*/
 Puzzle.Matriz[0][0]=1;
 Puzzle.Matriz[0][1]=5;
 Puzzle.Matriz[0][2]=2;
@@ -25,7 +25,7 @@ Puzzle.Matriz[1][2]=3;
 Puzzle.Matriz[2][0]=7;
 Puzzle.Matriz[2][1]=8;
 Puzzle.Matriz[2][2]=6;
-*/
+
 cout<<endl;
 
 cout<<"Matriz Gerada Aleatoriamente:";
@@ -53,9 +53,10 @@ cout << endl<<endl;
   Arvore Arv;
   Lista Lista;
   long long int trava=0;
+  std::vector<int> v;
   Arv.Insere(Puzzle,&Arv.Raiz,&Lista,&trava);
 
-  //Lista.mostrar();
+  Lista.mostrar();
   cout<<endl;
 
   cout<<"Matriz Gerada Aleatoriamente:";

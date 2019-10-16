@@ -1,5 +1,8 @@
 #include "../Headers/Arvore.hpp"
 
+NoArv::NoArv(){
+  Marcado = false;
+}
 Arvore::Arvore(){
   this->Raiz = NULL;
 }
@@ -21,25 +24,40 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* tr
    (*p)->Dir = NULL;
    (*p)->Cima = NULL;
    (*p)->Baixo = NULL;
+   /*(*p)->Caminho = caminhoPai;
+   (*p)->Caminho.push_back(caminhoNovo);
+   for(unsigned int k=0;k<(*p)->Caminho.size();k++){
+     cout<<(*p)->Caminho.at(k)<<" ";
+   }cout<<endl;
+   */
    }
    MatrizPuzzle MatrizDeInsercao;
-  if(MatrizP.MovimentaEsquerda(MatrizDeInsercao.Matriz) && *trava<32060){
-     if(!Lista->existe(MatrizDeInsercao.Matriz)){
-       cout<<"Movimento para Esquerda"<<endl;
-       if(!MatrizDeInsercao.VerificaResultado()){
-         Lista->inserir_final(MatrizDeInsercao.Matriz);
-       }
-       else{
-         cout<<"RESULTADO"<<endl;
-         string b;
-         cin>>b;
-       }
 
-       *trava= *trava+1;
-       Insere(MatrizDeInsercao,&(*p)->Esq,Lista,trava);
-
+   cout<<"inicio da matriz";
+   for(int i=0;i<3;i++){
+     cout<<endl;
+     for(int j=0;j<3;j++){
+       cout<<MatrizP.Matriz[i][j]<<" ";
      }
    }
+   cout<<endl<<"fim"<<endl;
+   if(MatrizP.MovimentaEsquerda(MatrizDeInsercao.Matriz) && *trava<32060){
+        if(!Lista->existe(MatrizDeInsercao.Matriz)){
+          cout<<"Movimento para Esquerda"<<endl;
+          if(!MatrizDeInsercao.VerificaResultado()){
+            Lista->inserir_final(MatrizDeInsercao.Matriz);
+          }
+          else{
+            cout<<"RESULTADO"<<endl;
+            string b;
+            cin>>b;
+          }
+
+          *trava= *trava+1;
+          Insere(MatrizDeInsercao,&(*p)->Esq,Lista,trava);
+
+        }
+      }
   if(MatrizP.MovimentaBaixo(MatrizDeInsercao.Matriz) && *trava<32060){
       if(!Lista->existe(MatrizDeInsercao.Matriz)){
         cout<<"Movimento para Baixo"<<endl;
@@ -91,3 +109,9 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* tr
 
 }
 void Arvore::Inicializa(){Raiz = NULL;}
+
+NoArv* Arvore::BuscaLargura(Pont p){
+  while(p->Cima!=NULL){
+
+  }
+}
