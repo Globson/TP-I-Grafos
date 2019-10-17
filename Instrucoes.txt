@@ -1,0 +1,11 @@
+ Para compilar execute:
+    g++ main.cpp -o EXEC Sources/Puzzle.cpp Sources/Arvore.cpp Sources/Lista.cpp
+
+Para executar:
+    ./EXEC
+    
+Para compilar com makefile execute:
+    make
+
+Para executar com makefile:
+    make run

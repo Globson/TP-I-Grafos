@@ -31,27 +31,32 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* tr
    }cout<<endl;
    */
    }
+   if(MatrizP.VerificaResultado()){
+     cout<<"RESULTADO"<<endl;
+     string b;
+     cin>>b;
+   }
    MatrizPuzzle MatrizDeInsercao;
 
-   cout<<"inicio da matriz";
+   cout<<"Matriz atual:";
    for(int i=0;i<3;i++){
      cout<<endl;
      for(int j=0;j<3;j++){
        cout<<MatrizP.Matriz[i][j]<<" ";
      }
    }
-   cout<<endl<<"fim"<<endl;
+   cout<<endl;
    if(MatrizP.MovimentaEsquerda(MatrizDeInsercao.Matriz) && *trava<32060){
         if(!Lista->existe(MatrizDeInsercao.Matriz)){
           cout<<"Movimento para Esquerda"<<endl;
           if(!MatrizDeInsercao.VerificaResultado()){
             Lista->inserir_final(MatrizDeInsercao.Matriz);
           }
-          else{
+          /*else{
             cout<<"RESULTADO"<<endl;
             string b;
             cin>>b;
-          }
+          }*/
 
           *trava= *trava+1;
           Insere(MatrizDeInsercao,&(*p)->Esq,Lista,trava);
@@ -64,11 +69,11 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* tr
         if(!MatrizDeInsercao.VerificaResultado()){
           Lista->inserir_final(MatrizDeInsercao.Matriz);
         }
-        else{
+        /*else{
           cout<<"RESULTADO"<<endl;
           string b;
           cin>>b;
-        }
+        }*/
 
         *trava= *trava+1;
         Insere(MatrizDeInsercao,&(*p)->Baixo,Lista,trava);
@@ -80,12 +85,12 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* tr
         if(!MatrizDeInsercao.VerificaResultado()){
           Lista->inserir_inicio(MatrizDeInsercao.Matriz);
         }
-        else{
+        /*else{
           cout<<"RESULTADO"<<endl;
           string b;
           cin>>b;
           //resultado = true;
-        }
+        }*/
         *trava= *trava+1;
         Insere(MatrizDeInsercao,&(*p)->Cima,Lista,trava);
       }
@@ -96,11 +101,11 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* tr
        if(!MatrizDeInsercao.VerificaResultado()){
          Lista->inserir_final(MatrizDeInsercao.Matriz);
        }
-       else{
+       /*else{
          cout<<"RESULTADO"<<endl;
          string b;
          cin>>b;
-       }
+       }*/
 
        *trava= *trava+1;
        Insere(MatrizDeInsercao,&(*p)->Dir,Lista,trava);
@@ -109,9 +114,9 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* tr
 
 }
 void Arvore::Inicializa(){Raiz = NULL;}
-
+/*
 NoArv* Arvore::BuscaLargura(Pont p){
   while(p->Cima!=NULL){
 
   }
-}
+}*/
