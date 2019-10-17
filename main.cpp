@@ -96,5 +96,6 @@ cout << endl<<endl;
     }
   }
   cout << endl<<endl;
+  Arv.Busca(Arv.Raiz,Puzzle.MatrizR);
   return 0;
 }

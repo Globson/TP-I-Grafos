@@ -114,9 +114,27 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* tr
 
 }
 void Arvore::Inicializa(){Raiz = NULL;}
-/*
-NoArv* Arvore::BuscaLargura(Pont p){
-  while(p->Cima!=NULL){
 
-  }
-}*/
+void Arvore::Busca(Pont p,int MatrizR[][3]){
+  if(p!=NULL){
+    int a=0;
+    for(int i=0;i<3;i++){
+      for(int j=0;j<3;j++){
+        if(p->MatrizAtual[i][j]==MatrizR[i][j]){
+          a++;
+        }
+      }}
+      if(a==9){
+        cout<<"RESULTADO"<<endl;
+        //return &*p;
+      }
+      if(p->Dir!=NULL){
+        Busca(p->Dir,MatrizR);}
+      if(p->Esq!=NULL){
+        Busca(p->Esq,MatrizR);}
+      if(p->Cima!=NULL){
+        Busca(p->Cima,MatrizR);}
+      if(p->Baixo!=NULL){
+        Busca(p->Baixo,MatrizR);}
+    }
+}

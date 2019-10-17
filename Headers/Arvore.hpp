@@ -20,7 +20,7 @@ public:
   void Pesquisa(int Matriz[][3], Pont *p);
   void Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* trava);
   void Inicializa();
-  NoArv* BuscaLargura(Pont p);
+  void Busca(Pont p,int MatrizR[][3]);
 };
 
 #endif
