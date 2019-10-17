@@ -36,4 +36,10 @@ public:
 //   vector<MatrizesExistente>Vetor;
 //
 // };
+
+class Caminhos{
+public:
+  string caminho;
+  int tam;
+};
 #endif

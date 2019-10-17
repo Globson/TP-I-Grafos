@@ -115,8 +115,9 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* tr
 }
 void Arvore::Inicializa(){Raiz = NULL;}
 
-void Arvore::Busca(Pont p,int MatrizR[][3]){
+void Arvore::Busca(Pont p,int MatrizR[][3],string movimento,vector<Caminhos>*Cam){
   if(p!=NULL){
+    string mov=movimento;
     int a=0;
     for(int i=0;i<3;i++){
       for(int j=0;j<3;j++){
@@ -125,16 +126,28 @@ void Arvore::Busca(Pont p,int MatrizR[][3]){
         }
       }}
       if(a==9){
+        Caminhos Cami;
+        Cami.caminho = mov;
+        Cami.tam = mov.length();
+        Cam->push_back(Cami);
         cout<<"RESULTADO"<<endl;
-        //return &*p;
+        //cout<<mov<<endl;
       }
       if(p->Dir!=NULL){
-        Busca(p->Dir,MatrizR);}
+        string dir = mov;
+        dir.append("Dir-");
+        Busca(p->Dir,MatrizR,dir,Cam);}
       if(p->Esq!=NULL){
-        Busca(p->Esq,MatrizR);}
+        string esq = mov;
+        esq.append("Esq-");
+        Busca(p->Esq,MatrizR,esq,Cam);}
       if(p->Cima!=NULL){
-        Busca(p->Cima,MatrizR);}
+        string cim = mov;
+        cim.append("Cim-");
+        Busca(p->Cima,MatrizR,cim,Cam);}
       if(p->Baixo!=NULL){
-        Busca(p->Baixo,MatrizR);}
+        string bai = mov;
+        bai.append("Bai-");
+        Busca(p->Baixo,MatrizR,bai,Cam);}
     }
 }

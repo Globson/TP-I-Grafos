@@ -2,7 +2,7 @@
 #define ARVORE_HPP
 #include "Puzzle.hpp"
 #include "Lista.hpp"
-
+#include <limits>
 typedef class NoArv * Pont;
 class NoArv {
 public:
@@ -20,7 +20,7 @@ public:
   void Pesquisa(int Matriz[][3], Pont *p);
   void Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* trava);
   void Inicializa();
-  void Busca(Pont p,int MatrizR[][3]);
+  void Busca(Pont p,int MatrizR[][3],string movimento,vector<Caminhos>*Cam);
 };
 
 #endif

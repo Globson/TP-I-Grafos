@@ -34,7 +34,7 @@ int main(int argc, char const *argv[]) {
   Puzzle.Matriz[2][0]=4;
   Puzzle.Matriz[2][1]=8;
   Puzzle.Matriz[2][2]=5;
-
+/*/   //Comentar sets abaixo para eliminar configuracao constante de matriz, ( feito para teste)
 Puzzle.Matriz[0][0]=1;
 Puzzle.Matriz[0][1]=5;
 Puzzle.Matriz[0][2]=2;
@@ -44,7 +44,7 @@ Puzzle.Matriz[1][2]=3;
 Puzzle.Matriz[2][0]=7;
 Puzzle.Matriz[2][1]=8;
 Puzzle.Matriz[2][2]=6;
-/*/
+
 cout<<endl;
 
 cout<<"Matriz Gerada Aleatoriamente:";
@@ -96,6 +96,26 @@ cout << endl<<endl;
     }
   }
   cout << endl<<endl;
-  Arv.Busca(Arv.Raiz,Puzzle.MatrizR);
+  vector<Caminhos>Caminhos;
+  Arv.Busca(Arv.Raiz,Puzzle.MatrizR,"",&Caminhos);
+  string Caminho;
+  int TamCaminho;
+  unsigned int size = Caminhos.size();
+  if(size>1){
+    Caminho = Caminhos.at(0).caminho;
+    TamCaminho = Caminhos.at(0).tam;
+  }
+  for(unsigned int k=1;k<size;k++){
+    if(Caminhos.at(k).tam<TamCaminho){
+      Caminho = Caminhos.at(0).caminho;
+      TamCaminho = Caminhos.at(0).tam;
+    }
+  }
+  if(size>1){
+  cout<<"Melhor caminho: "<<Caminho<<endl;
+  cout<<"Quantidade de movimentos do melhor caminho: "<<TamCaminho/4<<endl;
+}else{
+  cout<<"Nao houve resultados!"<<endl;
+}
   return 0;
 }
