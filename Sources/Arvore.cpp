@@ -128,7 +128,7 @@ void Arvore::Busca(Pont p,int MatrizR[][3],string movimento,vector<Caminhos>*Cam
         Cami.caminho = mov;
         Cami.tam = mov.length();
         Cam->push_back(Cami);
-        cout<<"RESULTADO"<<endl;
+        cout<<"CAMINHO ENCONTRADO!"<<endl;
         //cout<<mov<<endl;
       }
       if(p->Dir!=NULL){
