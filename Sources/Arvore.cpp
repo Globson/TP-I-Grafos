@@ -1,8 +1,6 @@
 #include "../Headers/Arvore.hpp"
 
-NoArv::NoArv(){
-  Marcado = false;
-}
+
 Arvore::Arvore(){
   this->Raiz = NULL;
 }

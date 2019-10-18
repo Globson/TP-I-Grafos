@@ -8,8 +8,6 @@ class NoArv {
 public:
   int MatrizAtual[3][3];
   Pont Cima,Baixo,Esq,Dir;
-  bool Marcado;
-  //vector<int> Caminho;
   NoArv();
 };
 

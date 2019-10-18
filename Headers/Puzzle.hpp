@@ -24,18 +24,6 @@ public:
   bool VerificaResultado();
 };
 
-// class MatrizesExistente{
-// public:
-//   int Matriz[3][3];
-// };
-//
-// class VetorDeMexistentes{
-//
-//
-// public:
-//   vector<MatrizesExistente>Vetor;
-//
-// };
 
 class Caminhos{
 public:
