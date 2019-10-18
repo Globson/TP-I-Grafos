@@ -44,10 +44,10 @@ Puzzle.Matriz[1][2]=3;
 Puzzle.Matriz[2][0]=7;
 Puzzle.Matriz[2][1]=8;
 Puzzle.Matriz[2][2]=6;
-/*/
+
 cout<<endl;
 
-cout<<"Matriz Gerada Aleatoriamente:";
+cout<<"Matriz 8-Puzzle:";
 for(int i=0;i<3;i++){
   cout << endl;
   cout << "\t";
@@ -67,7 +67,7 @@ for(int i=0;i<3;i++){
 cout << endl<<endl;
 //string b;
 //cin>>b;
-
+/*/
 
   Arvore Arv;
   Lista Lista;
@@ -75,10 +75,10 @@ cout << endl<<endl;
   //std::vector<int> v;
   Arv.Insere(Puzzle,&Arv.Raiz,&Lista,&trava);
 
-  Lista.mostrar();
+  //Lista.mostrar();
   cout<<endl;
 
-  cout<<"Matriz Gerada Aleatoriamente:";
+  cout<<"Matriz 8-Puzzle:";
   for(int i=0;i<3;i++){
     cout << endl;
     cout << "\t";

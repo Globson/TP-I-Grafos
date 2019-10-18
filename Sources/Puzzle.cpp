@@ -35,7 +35,7 @@ MatrizPuzzle::MatrizPuzzle(){
   InicializaMatrizResolvida();
 }
 MatrizPuzzle::~MatrizPuzzle(){
-  cout<<"Destrutor Puzzle"<<endl;
+  //cout<<"Destrutor Puzzle"<<endl;
 }
 
 bool MatrizPuzzle::MovimentaCima(int MatrizAux[][3]){

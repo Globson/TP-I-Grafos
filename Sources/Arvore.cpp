@@ -31,8 +31,8 @@ void Arvore::Insere(MatrizPuzzle MatrizP, Pont *p,Lista* Lista,long long int* tr
    }
    if(MatrizP.VerificaResultado()){
      cout<<"RESULTADO"<<endl;
-     string b;
-     cin>>b;
+     //string b;
+     //cin>>b;
    }
    MatrizPuzzle MatrizDeInsercao;
 
