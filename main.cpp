@@ -34,7 +34,7 @@ int main(int argc, char const *argv[]) {
   Puzzle.Matriz[2][0]=4;
   Puzzle.Matriz[2][1]=8;
   Puzzle.Matriz[2][2]=5;
-/*/   //Comentar sets abaixo para eliminar configuracao constante de matriz, ( feito para teste)
+  //Comentar sets abaixo para eliminar configuracao constante de matriz, ( feito para teste)
 Puzzle.Matriz[0][0]=1;
 Puzzle.Matriz[0][1]=5;
 Puzzle.Matriz[0][2]=2;
@@ -44,7 +44,7 @@ Puzzle.Matriz[1][2]=3;
 Puzzle.Matriz[2][0]=7;
 Puzzle.Matriz[2][1]=8;
 Puzzle.Matriz[2][2]=6;
-
+/*/
 cout<<endl;
 
 cout<<"Matriz Gerada Aleatoriamente:";
@@ -111,7 +111,7 @@ cout << endl<<endl;
       TamCaminho = Caminhos.at(0).tam;
     }
   }
-  if(size>1){
+  if(size>=1){
   cout<<"Melhor caminho: "<<Caminho<<endl;
   cout<<"Quantidade de movimentos do melhor caminho: "<<TamCaminho/4<<endl;
 }else{
